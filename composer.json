@@ -8,13 +8,13 @@
       }
   },
   "require": {
+    "cweagans/composer-patches": "~1.0",
     "drupal/drupal": "7.50",
     "drupal/ctools": "1.9",
     "drupal/hook_update_deploy_tools": "1.16"
   },
   "require-dev": {
     "composer/installers": "^1.0.20",
-    "cweagans/composer-patches": "~1.0",
     "geerlingguy/drupal-vm": "^3.2",
     "behat/behat": "~3.0",
     "behat/mink": "~1.6",
@@ -38,6 +38,7 @@
     },
     "patches": {
       "drupal/drupal": {
+        "htaccess": "./patches/drupal/htaccess.patch",
         "One-time password reset page should never be cached": "https://www.drupal.org/files/issues/one_time_password_reset-2461105-20.patch",
         "Changing email address should invalidate one-time login links": "https://www.drupal.org/files/issues/change_email_invalidate_password_reset-2508627-33-New_Function.patch"
       }

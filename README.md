@@ -49,8 +49,17 @@ git clone git@github.com:shawnachieve/d7leangitacquiaexample.git
 cd d7leangitacquiaexample
 composer install
 vagrant up
-vagrant provision
 vagrant reload
+```
+
+Running ```vagrant reload``` at the end is necessary in order to generate the
+appropriate drush aliases and host file entries on your host computer.
+
+# Production build
+To build a version of the project for deployment to a live hosting environment:
+
+```
+composer install --prefer-dist --no-dev --no-interaction
 ```
 
 # References

@@ -186,14 +186,14 @@ installed_extras:
   # - drupalconsole
   # - elasticsearch
   - mailhog
-  - memcached
+  # - memcached
   # - newrelic
   # - nodejs
   - pimpmylog
   # - redis
   # - ruby
   # - selenium
-  - solr
+  # - solr
   - varnish
   - xdebug
   - xhprof
