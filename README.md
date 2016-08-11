@@ -17,9 +17,12 @@ This approach has several benefits:
   in your local environment, but have that module excluded in the production
   deployment.
 
-  
+
 
 # Prerequisites
+* vagrant 1.8.5+ (https://www.vagrantup.com/)
+* Composer installed globally (https://getcomposer.org/)
+
 The following vagrant plugins are recommended:
 ```
 vagrant plugin install vagrant-auto_network
@@ -29,6 +32,8 @@ vagrant plugin install vagrant-hostsupdater
 vagrant plugin install vagrant-rsync-back
 vagrant plugin install vagrant-vbguest
 ```
+
+NOTE: The plugins "vagrant-auto_network" and "vagrant-hostsupdater" are required.  The others are recommended.
 
 # Development Setup
 
@@ -47,3 +52,11 @@ vagrant up
 vagrant provision
 vagrant reload
 ```
+
+# References
+
+* http://www.ifdattic.com/how-to-use-composer/
+* https://www.vagrantup.com/
+* https://www.drupal.org/node/2718229
+* http://www.drupalvm.com/
+* https://getcomposer.org/

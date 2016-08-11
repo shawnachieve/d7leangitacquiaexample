@@ -25,7 +25,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "post-install-cmd": "sh ./scripts/composer/post-install.sh"
+    "post-install-cmd": "sh ./scripts/composer/post-install.sh",
+    "post-update-cmd": "sh ./scripts/composer/post-install.sh"
   },
   "extra": {
     "installer-paths": {

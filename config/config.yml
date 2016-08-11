@@ -122,6 +122,15 @@ apache_vhosts:
           ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ dashboard_install_dir }}"
           DirectoryIndex index.html
 
+apache_vhosts_ssl:
+  - servername: "{{ drupal_domain }}"
+    serveralias: "www.{{ drupal_domain }}"
+    documentroot: "{{ drupal_core_path }}"
+    certificate_file: "/etc/ssl/certs/drupalvm.crt"
+    certificate_key_file: "/etc/ssl/private/drupalvm.key"
+    extra_parameters: |
+          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ drupal_core_path }}"
+
 apache_remove_default_vhost: true
 apache_mods_enabled:
   - expires.load
@@ -271,8 +280,8 @@ composer_global_packages:
 # Run specified scripts before or after VM is provisioned. Path is relative to
 # the `provisioning/playbook.yml` file.
 pre_provision_scripts: []
-post_provision_scripts: []
-  # - "../examples/scripts/configure-solr.sh"
+post_provision_scripts:
+  - "../../../../scripts/drupalvm/post-provision.sh"
 
 # MySQL Configuration.
 mysql_root_password: root
@@ -324,6 +333,3 @@ selenium_version: 2.46.0
 dashboard_install_dir: /var/www/dashboard
 known_hosts_path: ~/.ssh/known_hosts
 #ssh_home: "{{ drupal_core_path }}"
-
-post_provision_scripts:
-  - "../../../../scripts/drupalvm/post-provision.sh"
