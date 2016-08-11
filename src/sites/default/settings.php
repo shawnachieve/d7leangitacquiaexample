@@ -627,7 +627,7 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  *
  * Keep this code block at the end of this file to take full effect.
  */
-$global_settings_local = $_SERVER["DOCUMENT_ROOT"] . '/../config/settings.local.php';
+$global_settings_local = __DIR__ . '/../../../config/settings.local.php';
 if (file_exists($global_settings_local)) {
   include $global_settings_local;
 }
