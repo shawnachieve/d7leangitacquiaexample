@@ -1,0 +1,45 @@
+{
+  "name": "shawnachieve/d7leangitacquiaexample",
+  "description": "Example of a Drupal 7 Lean Git Repository structure for Acquia hosting.",
+  "repositories": {
+      "drupal": {
+        "type": "composer",
+        "url":  "https://packages.drupal.org/7"
+      }
+  },
+  "require": {
+    "drupal/drupal": "7.50",
+    "drupal/ctools": "1.9",
+    "drupal/hook_update_deploy_tools": "1.16"
+  },
+  "require-dev": {
+    "composer/installers": "^1.0.20",
+    "cweagans/composer-patches": "~1.0",
+    "geerlingguy/drupal-vm": "^3.2",
+    "behat/behat": "~3.0",
+    "behat/mink": "~1.6",
+    "behat/mink-goutte-driver": "~1.2",
+    "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+    "drupal/devel": "1.5"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "post-install-cmd": "sh ./scripts/composer/post-install.sh"
+  },
+  "extra": {
+    "installer-paths": {
+      "docroot": ["type:drupal-core"],
+      "docroot/sites/all/modules/contrib/{$name}": ["type:drupal-module"],
+      "docroot/profiles/{$name}": ["type:drupal-profile"],
+      "docroot/sites/all/themes/contrib/{$name}": ["type:drupal-theme"],
+      "docroot/sites/all/libraries/{$name}" : ["type:drupal-library"]
+    },
+    "patches": {
+      "drupal/drupal": {
+        "One-time password reset page should never be cached": "https://www.drupal.org/files/issues/one_time_password_reset-2461105-20.patch",
+        "Changing email address should invalidate one-time login links": "https://www.drupal.org/files/issues/change_email_invalidate_password_reset-2508627-33-New_Function.patch"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+vendor
+vendor/*
+.vagrant
+.vagrant/*
+.idea
+.idea/*
+docroot
+docroot/*
+config/settings.local.override.php
