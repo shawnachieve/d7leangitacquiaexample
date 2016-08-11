@@ -17,10 +17,17 @@ This approach has several benefits:
   in your local environment, but have that module excluded in the production
   deployment.
 
+# What gets setup
+Running ```compoer install``` and ```vagrant up``` creates the following:
+* A local development copy of Drupal 7, several contrib modules, and the project custom code.
+* A DrupalVM instance supporting both www and non-www URLs.
+* A DrupalVM instance supporting SSL on the www URL.
+* A script for automatically syncing the DrupalVM DB with the Acquia Dev environment DB.
+
 
 
 # Prerequisites
-* vagrant 1.8.5+ (https://www.vagrantup.com/)
+* vagrant 1.8.4+ (https://www.vagrantup.com/)
 * Composer installed globally (https://getcomposer.org/)
 
 The following vagrant plugins are recommended:
@@ -50,6 +57,7 @@ cd d7leangitacquiaexample
 composer install
 vagrant up
 vagrant reload
+./scripts/sync_db.sh
 ```
 
 Running ```vagrant reload``` at the end is necessary in order to generate the
